@@ -1,0 +1,31 @@
+<!-- Listings -->
+<section id="listings" class="py-5">
+  <div class="container">
+    <h1>Your Channels</h1>
+    <p id="nochannel" *ngIf="blogs.length == 0" style="color: white;">You have not subscribed to any channel</p>
+    <a  *ngIf="blogs.length == 0" routerLink="/user/channels"  style="color: white;">Click here to add channels</a>
+    <br />
+    <div class="row">
+      <div *ngFor="let blog of blogs" class="col-md-6 col-lg-4 mb-4">
+        <div class="card listing-preview">
+          <a routerLink="/user/blog/{{ blog._id }}"
+            ><img class="card-img-top" src="{{ blog.image.url }}" alt=""
+          /></a>
+          <div class="card-body">
+            <div class="listing-heading text-center">
+              <a routerLink="/user/blog/{{ blog._id }}">
+                <h4 class="text-primary  text-danger">
+                  {{ blog.title }}
+                </h4>
+              </a>
+              <p style="color: white;">
+                <i class="fas fa-clock text-secondary"></i>
+                {{ blog.description.substring(0, 50) + " ..." }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

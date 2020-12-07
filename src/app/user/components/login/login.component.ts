@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   
   email: String;
   password: String;
+  errmsg = "";
   constructor(
     private auth: AuthService,
     private router: Router,
@@ -44,6 +45,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/user']);
       }
       else{
+        this.errmsg = "Invalid login details.";
         this.toastr.error( data.msg,'Invalid login details.',  { timeOut: 5000 } );
         this.router.navigate(['/user/login']);
       }

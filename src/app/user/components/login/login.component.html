@@ -8,6 +8,7 @@
           </div>
           <div class="card-body">
             <form (submit)="onLoginSubmit()">
+              <p class="text-danger"  >{{errmsg}}</p>
               <div class="form-group">
                 <label for="email">Email</label>
                 <input
